@@ -2,7 +2,7 @@
 
 ## General Viewpoint
 
-Overall task: solve linear system of equations
+Overall task: Solve *linear system of equations*
 
 $$
 \boldsymbol{Ax}=\boldsymbol{b}
@@ -10,7 +10,11 @@ $$
 
 In the discussion afterwards, we assume that $\boldsymbol{A}$ is invertible, $\boldsymbol{A}\in \mathbb{R} ^{n\times n}$ but $n$ is very large.
 
-In scientific computing, we care about speed, stability and accuracy.
+In scientific computing, there are three important issues:
+
+- ***Efficiency***
+- ***Accuracy***
+- ***Stability***: a concept measuring how sensitive the algorithm to perturbation
 
 ## Introductory Examples
 
@@ -35,7 +39,7 @@ We split the interval $[0,1]$ into: $0=x_0<x_1<\cdots <x_{i-1}<x_i<x_{i+1}<\cdot
 
 Let $u\left( x_i \right) \triangleq u_i$.
 
-Using the finite difference method, we know that: 
+Using the finite difference method, we know that:
 
 $$
 u\prime\left( x \right) =\lim_{\varepsilon \rightarrow 0} \frac{u\left( x+\varepsilon \right) -u\left( x \right)}{\varepsilon}\approx \frac{u\left( x+\varepsilon \right) -u\left( x \right)}{\varepsilon}
@@ -53,7 +57,7 @@ $$
 \boldsymbol{A\cdot u}=\boldsymbol{f}
 $$
 
-We can get: 
+We can get:
 
 $$
 \boldsymbol{u}=\left[ \begin{array}{c}
@@ -82,5 +86,44 @@ $$
 \underset{\mathrm{observed} \ \mathrm{image}}{\underbrace{g\left( x \right) }}=\underset{\mathrm{true} \ \mathrm{image}}{\underbrace{u\left( x \right) }}+\int_{\varOmega}{\underset{\mathrm{blurring} \ \mathrm{kernel}}{\underbrace{k\left( x-y \right) }}u\left( y \right) \mathrm{d}y}+\underset{\mathrm{noise}}{\underbrace{\eta \left( x \right) }}
 $$
 
-Sometimes $k\left( x \right) =\frac{1}{c}e^{-\frac{x^2}{2}}$ which is Gaussian blur.
+Sometimes $k\left( x \right) =\frac{1}{c}e^{-\frac{x^2}{2}}$ which is Gaussian blur. Usually:
 
+$$
+k\left( x-y \right) =\begin{cases}
+	c, if\,\,\left| x-y \right|<\varepsilon\\
+	0, \mathrm{otherwise}\\
+\end{cases}
+$$
+
+To simplify, we ignore the noise: let $\eta \left( x \right) =0$.
+
+Given $g(x)$, we want to find $u(x)$. Assume that $k(x)$ is given and the image/signal is 1D. We can model the linear system as:
+
+$$
+\boldsymbol{u}=\left[ \begin{array}{c}
+	u_1\\
+	u_2\\
+	\vdots\\
+	u_n\\
+\end{array} \right] , \boldsymbol{g}=\left[ \begin{array}{c}
+	g_1\\
+	g_2\\
+	\vdots\\
+	g_n\\
+\end{array} \right] , \boldsymbol{A}=\left[ \begin{matrix}
+	1&		0&		\cdots&		0\\
+	0&		1&		\cdots&		0\\
+	\vdots&		\vdots&		\ddots&		\vdots\\
+	0&		0&		\cdots&		1\\
+\end{matrix} \right] +\left[ \begin{matrix}
+	k_0&		k_1&		k_2&		\cdots&		k_{n-1}\\
+	k_1&		k_0&		k_1&		\cdots&		k_{n-2}\\
+	k_2&		k_1&		k_0&		\cdots&		k_{n-3}\\
+	\vdots&		\ddots&		\ddots&		\ddots&		\vdots\\
+	k_{n-1}&		k_{n-2}&		k_{n-3}&		\cdots&		k_0\\
+\end{matrix} \right] ,
+\\
+\boldsymbol{Au}=\boldsymbol{g}
+$$
+
+$\boldsymbol{A}$ is called Toeplitz matrix.

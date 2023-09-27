@@ -1,8 +1,26 @@
 site_name: Numerical Linear Algebra
 theme:
   name: material
+  features:
+    - header.autohide
+    - navigation.tabs
+    - navigation.path
   font:
     text: Libre Baskerville
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: deep purple
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -12,3 +30,6 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+repo_url: https://github.com/LiuShuoJiang/Numerical-Linear-Algebra
+repo_name: ShuoJiang Liu
