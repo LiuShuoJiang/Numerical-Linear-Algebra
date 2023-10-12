@@ -2,7 +2,7 @@
 
 ## General Viewpoint
 
-Overall task: Solve *linear system of equations*
+`Overall task`: Solve *linear system of equations*
 
 $$
 \boldsymbol{Ax}=\boldsymbol{b}
