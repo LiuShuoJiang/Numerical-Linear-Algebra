@@ -5,6 +5,7 @@ theme:
     - header.autohide
     - navigation.tabs
     - navigation.path
+    - navigation.indexes
   font:
     text: Libre Baskerville
   palette:
@@ -33,3 +34,21 @@ extra_javascript:
 
 repo_url: https://github.com/LiuShuoJiang/Numerical-Linear-Algebra
 repo_name: ShuoJiang Liu
+
+nav:
+  - Home: index.md
+  - Foundations:
+    - Basics/README.md
+    - Introduction: Basics/Introduction.md
+    - Linear Algebra Review: Basics/Linear_Algebra.md
+  - Condition and Stability:
+    - Condition and Stability/README.md
+    - Conditioning: Condition and Stability/Conditioning.md
+    - Stability: Condition and Stability/Stability.md
+  - Eigenvalue Problem:
+    - Eigenvalue/README.md
+    - Introduction: Eigenvalue/Introduction.md
+    - QR Factorization: Eigenvalue/QR_Factorization.md
+    - Classical Eigenvalue Algorithms: Eigenvalue/Classical_Eigenvalue_Algorithms.md
+    - QR Algorithm: Eigenvalue/QR_Algorithm.md
+
