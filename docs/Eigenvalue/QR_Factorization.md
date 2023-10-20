@@ -146,6 +146,8 @@ where $\boldsymbol{Q}_i$ are unitary. There are two ways for this process: **Hou
 
 ## Householder Transformation
 
+### Basic Steps
+
 The overall procedure (recursive):
 
 $$
@@ -159,7 +161,11 @@ $$
 	0&		\times&		\times&		\times\\
 	0&		\times&		\times&		\times\\
 	0&		\times&		\times&		\times\\
-\end{matrix} \right] \xrightarrow{\boldsymbol{Q}_2}\left[ \begin{matrix}
+\end{matrix} \right] \xrightarrow{\boldsymbol{Q}_2}
+$$
+
+$$
+\left[ \begin{matrix}
 	\times&		\times&		\times&		\times\\
 	0&		\times&		\times&		\times\\
 	0&		0&		\times&		\times\\
@@ -208,7 +214,9 @@ $$
 
 Question: why not choose $\mathbf{H}_2$ and get $\boldsymbol{v}=\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1-\boldsymbol{x}$?
 
-We have two choices: $\boldsymbol{Q}_1\boldsymbol{x}=-\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1, \boldsymbol{Q}_1\boldsymbol{x}=\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1$. Select:
+We have two choices: $\boldsymbol{Q}_1\boldsymbol{x}=-\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1, \boldsymbol{Q}_1\boldsymbol{x}=\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1$. 
+
+In practice, we select:
 
 $$
 \boldsymbol{v}=-\mathrm{sign}\left( \boldsymbol{x}_1 \right) \cdot \left\| \boldsymbol{x} \right\| \boldsymbol{e}_1-\boldsymbol{x}
@@ -241,4 +249,68 @@ $$
 \end{matrix} \right] 
 $$
 
+### Householder QR Factorization
 
+Here is the algorithm for Householder QR factorization for a matrix $\boldsymbol{A}\in \mathbb{R} ^{m\times n}$ :
+
+For $k=1:m$:
+
+- $\boldsymbol{x}=\boldsymbol{A}_{k:m,k}$
+- $\boldsymbol{v}_k=-\mathrm{sign}\left( x_1 \right) \cdot \left\| \boldsymbol{x} \right\| \boldsymbol{e}_1-\boldsymbol{x}$
+- $\boldsymbol{v}_k=\frac{\boldsymbol{v}_k}{\left\| \boldsymbol{v}_k \right\|}$
+- $\boldsymbol{A}_{k:m,k:n}=\boldsymbol{A}_{k:m,k:n}-2\boldsymbol{v}_k\left( {\boldsymbol{v}_k}^T\boldsymbol{A}_{k:m,k:n} \right)$
+
+End
+
+**Remarks**:
+
+1. QR by Householder transformation is stable. In practice, it is used more frequently than modified Gram-Schmidt algorithm.
+2. The cost of this algorithm is $O\left( 2mn^2-\frac{2}{3}n^3 \right)$.
+3. $\boldsymbol{Q}$ has never been formed explicitly.
+
+## Givens Rotation as QR Factorization
+
+The core element of Givens Rotation:
+
+$$
+\boldsymbol{J}\left( i,k,\theta \right) =\left[ \begin{matrix}
+	1&		&		&		&		&		&		&		&		&		&		\\
+	&		\ddots&		&		\vdots&		&		&		&		\vdots&		&		&		\\
+	&		&		1&		&		&		&		&		&		&		&		\\
+	&		\cdots&		&		c_{\left( i,i \right)}&		&		\cdots&		&		s_{\left( i,k \right)}&		&		\cdots&		\\
+	&		&		&		&		1&		&		&		&		&		&		\\
+	&		&		&		\vdots&		&		\ddots&		&		\vdots&		&		&		\\
+	&		&		&		&		&		&		1&		&		&		&		\\
+	&		\cdots&		&		s_{\left( k,i \right)}&		&		\cdots&		&		c_{\left( k,k \right)}&		&		\cdots&		\\
+	&		&		&		&		&		&		&		&		1&		&		\\
+	&		&		&		\vdots&		&		&		&		\vdots&		&		\ddots&		\\
+	&		&		&		&		&		&		&		&		&		&		1\\
+\end{matrix} \right] 
+$$
+
+$$
+c=\cos \theta ;
+\\
+s=\sin \theta 
+$$
+
+Transformation pattern:
+
+$$
+\left[ \begin{array}{c}
+	x_1\\
+	x_2\\
+	\vdots\\
+	x_i\\
+	\vdots\\
+	x_k\\
+	\vdots\\
+	x_n\\
+\end{array} \right] : \left[ \begin{array}{c}
+	x_i\\
+	x_k\\
+\end{array} \right] \rightarrow \left[ \begin{array}{c}
+	\pm \sqrt{{x_i}^2+{x_k}^2}\\
+	0\\
+\end{array} \right] 
+$$
