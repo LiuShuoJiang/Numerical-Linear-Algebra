@@ -164,6 +164,8 @@ as $k\rightarrow +\infty$.
 
 ## Rayleigh Quotient Iteration
 
+### Rayleigh Quotient
+
 Given matrix $\boldsymbol{A}$, the **Rayleigh Quotient** of a vector $\boldsymbol{x}\ne 0$ is the ratio:
 
 $$
@@ -201,6 +203,8 @@ $$
 $$
 =r\left( \boldsymbol{q}_J \right) +O\left( \left\| \boldsymbol{x}-\boldsymbol{q}_J \right\| ^2 \right) =\lambda _J+O\left( \left\| \boldsymbol{x}-\boldsymbol{q}_J \right\| ^2 \right) 
 $$
+
+### Rayleigh Quotient Iteration Algorithm
 
 Algorithm (**Rayleigh Quotient Iteration**):
 
