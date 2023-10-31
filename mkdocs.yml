@@ -4,28 +4,50 @@ theme:
   features:
     - header.autohide
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.path
     - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
   font:
     text: Libre Baskerville
+  icon:
+    logo: material/library-outline
+  favicon: assets/favicon.png
   palette:
     # Palette toggle for light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: deep purple
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       primary: deep purple
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
+  - toc:
+      permalink: ⚓︎
+
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://liushuojiang.github.io/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/shuojiang-liu-09a749260/
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -34,6 +56,8 @@ extra_javascript:
 
 repo_url: https://github.com/LiuShuoJiang/Numerical-Linear-Algebra
 repo_name: ShuoJiang Liu
+
+copyright: Copyright &copy; 2023 Shuojiang Liu
 
 nav:
   - Home: index.md
