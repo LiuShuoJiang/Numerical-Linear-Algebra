@@ -9,3 +9,5 @@
 [QR Algorithm](./QR_Algorithm.md)
 
 [Divide and Conquer](./Divide_and_Conquer.md)
+
+[SVD](./SVD.md)
