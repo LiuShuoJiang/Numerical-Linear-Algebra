@@ -1,12 +1,12 @@
 # Introduction to Eigenvalue Problem
 
-`Overall task`: Given
+`Overall Task`: Given
 
 $$
 \boldsymbol{Ax}=\lambda \boldsymbol{x}
 $$
 
-Find $\lambda$ and $\boldsymbol{x}$.
+We need to find $\lambda$ and $\boldsymbol{x}$.
 
 What are the methods to compute eigenvalues and eigenvectors?
 
@@ -16,13 +16,13 @@ What are the methods to compute eigenvalues and eigenvectors?
 
 Traditional Method:
 
-- *Step 1*: Calculate the character polynomial $p_{\boldsymbol{A}}\left( z \right) =\det \left( z\boldsymbol{I}-\boldsymbol{A} \right)$
-- *Step 2*: Find the roots of $p_{\boldsymbol{A}}\left( z \right)$: $\lambda _i$. They are eigenvalues.
+- *Step 1*: Calculate the character polynomial $p_{\boldsymbol{A}}\left( z \right) =\det \left( z\boldsymbol{I}-\boldsymbol{A} \right)$;
+- *Step 2*: Find the roots of $p_{\boldsymbol{A}}\left( z \right)$: $\lambda _i$. They are eigenvalues;
 - *Step 3*: Solve $\boldsymbol{Ax}=\lambda _i\boldsymbol{x}$ for $\boldsymbol{x}$. $\boldsymbol{x}$ is the eigenvalue corresponding to $\lambda _i$.
 
 ### Problem of Traditional Methods
 
-Example: Let
+`Example`: Let
 
 $$
 \boldsymbol{A}=\left[ \begin{matrix}
@@ -114,4 +114,4 @@ Because $\det \left( \boldsymbol{X} \right) \ne 0, \det \left( \boldsymbol{X}^{-
 
 Why we divide the algorithms into two phases? The cost concern is the reason for the two-phase strategy. Phase 1 has $O(m^3)$ flops, while in Phase 2, it normally converges to $O\left( \varepsilon _{machine} \right)$ within $O(m)$ steps, each step requiring at most $O(m^2)$ steps to finish.
 
-Building blocks: [**QR Factorization**](./QR_Factorization.md)
+Building blocks: [**QR Factorization**](./QR_Factorization.md).

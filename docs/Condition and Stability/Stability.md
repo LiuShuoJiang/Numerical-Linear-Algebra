@@ -7,11 +7,11 @@ Two concepts:
 - [***Backward Stability***](#backward-stability)
 - [***General Stability***](#general-stability)
 
-Problem: $f: X\mapsto Y$
+`Problem`: $f: X\mapsto Y$
 
-Algorithm: $\tilde{f}: X\mapsto Y$
+`Algorithm`: $\tilde{f}: X\mapsto Y$
 
-The algorithm $\tilde{f}$ is used to solve the problem $f$
+The algorithm $\tilde{f}$ is used to solve the problem $f$.
 
 ## Backward Stability
 
@@ -23,7 +23,7 @@ $$
 \tilde{f}\left( x \right) =f\left( \tilde{x} \right) 
 $$
 
-for some $\tilde{x}$ with $\frac{\left\| x-\tilde{x} \right\|}{\left\| x \right\|}\leqslant O\left( \varepsilon _{\mathrm{machine}} \right)$
+for some $\tilde{x}$ with $\frac{\left\| x-\tilde{x} \right\|}{\left\| x \right\|}\leqslant O\left( \varepsilon _{\mathrm{machine}} \right)$.
 
 > *In words, a backward stable algorithm gives exactly the right solution to a nearly right problem.*
 
@@ -95,11 +95,17 @@ Step 2:
 
 $$
 \tilde{x}_2=\left[ b_2\ominus \left( \tilde{x}_1\otimes r_{21} \right) \right] \oslash r_{22}=\left[ b_2\ominus \left( \tilde{x}_1\cdot r_{21} \right) \cdot \left( 1+\varepsilon _2 \right) \right] \oslash r_{22}
-\\
+$$
+
+$$
 =\left[ b_2-\left( \tilde{x}_1\cdot r_{21} \right) \left( 1+\varepsilon _2 \right) \right] \left( 1+\varepsilon _3 \right) \oslash r_{22}
-\\
+$$
+
+$$
 =\left[ b_2-\left( \tilde{x}_1\cdot r_{21} \right) \left( 1+\varepsilon _2 \right) \right] \left( 1+\varepsilon _3 \right) \div r_{22}\left( 1+\varepsilon _4 \right) 
-\\
+$$
+
+$$
 =\frac{b_2-\left( \tilde{x}_1\cdot r_{21} \right) \left( 1+\varepsilon _2 \right)}{r_{22}}\left( 1+\varepsilon _3 \right) \left( 1+\varepsilon _4 \right) 
 $$
 
@@ -157,9 +163,9 @@ Also, forward and backward substitutions are all backward stable.
 
 ### Definition of General Stability
 
-Problem: $f: X\mapsto Y$
+`Problem`: $f: X\mapsto Y$
 
-Algorithm: $\tilde{f}: X\mapsto Y$
+`Algorithm`: $\tilde{f}: X\mapsto Y$
 
 `Definition`: $\tilde{f}$ is called **stable** if for $\forall x\in X$ ,
 
@@ -167,7 +173,7 @@ $$
 \frac{\left\| \tilde{f}\left( x \right) -f\left( \tilde{x} \right) \right\|}{\left\| f\left( \tilde{x} \right) \right\|}=O\left( \kappa \left( f \right) \cdot \varepsilon _{\mathrm{machine}} \right) 
 $$
 
-for some $\tilde{x}$ satisfying $\frac{\left\| \tilde{x}-x \right\|}{\left\| x \right\|}=O\left( \varepsilon _{\mathrm{machine}} \right)$
+for some $\tilde{x}$ satisfying $\frac{\left\| \tilde{x}-x \right\|}{\left\| x \right\|}=O\left( \varepsilon _{\mathrm{machine}} \right)$.
 
 `Conclusion`: If $\tilde{f}$ is backward stable, then it is also stable.
 
@@ -181,7 +187,7 @@ $$
 \tilde{\boldsymbol{L}}\tilde{\boldsymbol{U}}=\boldsymbol{A}+\delta \boldsymbol{A}
 $$
 
-for some $\delta \boldsymbol{A}\in \mathbb{R} ^{m\times m}$ satisfying $\frac{\left\| \delta \boldsymbol{A} \right\|}{\left\| \boldsymbol{L} \right\| \left\| \boldsymbol{U} \right\|}=O\left( \varepsilon _{\mathrm{machine}} \right)$
+for some $\delta \boldsymbol{A}\in \mathbb{R} ^{m\times m}$ satisfying $\frac{\left\| \delta \boldsymbol{A} \right\|}{\left\| \boldsymbol{L} \right\| \left\| \boldsymbol{U} \right\|}=O\left( \varepsilon _{\mathrm{machine}} \right)$.
 
 If $\left\| \boldsymbol{L} \right\| \left\| \boldsymbol{U} \right\| =O\left( \left\| \boldsymbol{A} \right\| \right)$ , then Gaussian Elimination without pivoting is stable. Otherwise, the method is not stable.
 
@@ -205,4 +211,4 @@ $$
 \tilde{\boldsymbol{R}}^T\tilde{\boldsymbol{R}}=\boldsymbol{A}+\delta \boldsymbol{A}
 $$
 
-for some $\delta \boldsymbol{A}$ satisfying $\frac{\left\| \delta \boldsymbol{A} \right\|}{\left\| \boldsymbol{A} \right\|}=O\left( \varepsilon _{\mathrm{machine}} \right)$
+for some $\delta \boldsymbol{A}$ satisfying $\frac{\left\| \delta \boldsymbol{A} \right\|}{\left\| \boldsymbol{A} \right\|}=O\left( \varepsilon _{\mathrm{machine}} \right)$.

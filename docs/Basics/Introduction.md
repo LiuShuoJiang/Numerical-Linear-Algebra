@@ -2,7 +2,7 @@
 
 ## General Viewpoint
 
-`Overall task`: Solve *linear system of equations*
+`Overall Task`: Solve *linear system of equations*
 
 $$
 \boldsymbol{Ax}=\boldsymbol{b}
@@ -126,4 +126,4 @@ $$
 \boldsymbol{Au}=\boldsymbol{g}
 $$
 
-$\boldsymbol{A}$ is called Toeplitz matrix.
+$\boldsymbol{A}$ is called [Toeplitz matrix](https://en.wikipedia.org/wiki/Toeplitz_matrix).

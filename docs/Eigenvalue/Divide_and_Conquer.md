@@ -2,7 +2,7 @@
 
 Assume $\boldsymbol{A}\in \mathbb{R} ^{m\times m}$ is SPD. After phase 1, $\boldsymbol{T}=\left( \hat{\boldsymbol{Q}}^{\left( 0 \right)} \right) ^T\boldsymbol{A}\hat{\boldsymbol{Q}}^{\left( 0 \right)}$ where $\boldsymbol{T}$ is tridiagonal ( $\boldsymbol{T}$ is also SPD ).
 
-**Main Idea**: Split the matrix into smaller matrices *in size*, and find the eigenvalues in a recursive manner (surgical strategy).
+`Main Idea`: Split the matrix into smaller matrices *in size*, and find the eigenvalues in a recursive manner (surgical strategy).
 
 Let:
 
@@ -56,7 +56,7 @@ $$
 
 Therefore: $\boldsymbol{T}=\hat{\boldsymbol{T}}+\boldsymbol{z}\cdot \boldsymbol{z}^T$.
 
-**Question**: Assume that we know the eigenvalues of $\hat{\boldsymbol{T}}_1$ and $\hat{\boldsymbol{T}}_2$, how to find the eigenvalues of $\boldsymbol{T}$ ?
+***Question***: Assume that we know the eigenvalues of $\hat{\boldsymbol{T}}_1$ and $\hat{\boldsymbol{T}}_2$, how to find the eigenvalues of $\boldsymbol{T}$ ?
 
 Denote $\hat{\boldsymbol{T}}_1=\boldsymbol{Q}_1\boldsymbol{D}_1{\boldsymbol{Q}_1}^T$ as the eigenvalue decomposition for $\hat{\boldsymbol{T}}_1$. $\boldsymbol{Q}_1$ contains the eigenvectors of $\hat{\boldsymbol{T}}_1$. $\boldsymbol{D}_1$ is a diagonal matrix whose diagonal elements are the eigenvalues. Also $\hat{\boldsymbol{T}}_2=\boldsymbol{Q}_2\boldsymbol{D}_2{\boldsymbol{Q}_2}^T$.
 
@@ -132,7 +132,7 @@ $$
 
 which is $\boldsymbol{T}$.
 
-**Question**: What are the eigenvalues for $\left[ \begin{matrix}
+***Question***: What are the eigenvalues for $\left[ \begin{matrix}
 	\boldsymbol{D}_1&		\boldsymbol{O}\\
 	\boldsymbol{O}&		\boldsymbol{D}_2\\
 \end{matrix} \right] +\beta \boldsymbol{vv}^T$ ?

@@ -4,33 +4,33 @@
 
 The range of vector norm is $\boldsymbol{x}\in \mathbb{R} ^n, \left\| \boldsymbol{x} \right\| \in \mathbb{R} ^+\cup \left\{ \mathbf{0} \right\}$.
 
-Example:
+Some examples:
 
-$L^2$-Norm:
+$L^2$-**Norm**:
 
 $$
 \left\| \boldsymbol{x} \right\| _2=\sqrt{\boldsymbol{x}^T\boldsymbol{x}}=\left< \boldsymbol{x},\boldsymbol{x} \right> ^{\frac{1}{2}}
 $$
 
-$L^1$-Norm:
+$L^1$-**Norm**:
 
 $$
 \left\| \boldsymbol{x} \right\| _1=\sum_{i=1}^n{\left| x_i \right|}
 $$
 
-$L^\infty$-Norm:
+$L^\infty$-**Norm**:
 
 $$
 \left\| \boldsymbol{x} \right\| _{\infty}=\max_{1\le i\le n} \left\| x_i \right\| 
 $$
 
-$L^p$-Norm:
+$L^p$-**Norm**:
 
 $$
 \left\| \boldsymbol{x} \right\| _p=\left( \sum_{i=1}^n{\left| x_i \right|^p} \right) ^{\frac{1}{p}}, p\in \left[ 1,\infty \right) 
 $$
 
-Weighted Norm: ( $\boldsymbol{W}$ is a given matrix)
+**Weighted Norm**: ( $\boldsymbol{W}$ is a given matrix)
 
 $$
 \boldsymbol{W}=\left[ \begin{matrix}
@@ -52,13 +52,13 @@ $L^2$ is like a circle. $L^1$ is like a diamond. $L^\infty$ is like a square. $L
 
 Two different ways to define the matrix norm for $\boldsymbol{A}\in \mathbb{R} ^{m\times n}$:
 
-Way 1: View matrix as a vector (reshape):
+*Way 1*: View matrix as a vector (reshape):
 
 $$
 \left\| \boldsymbol{A} \right\| _F=\left( \sum_{i=1}^m{\sum_{j=1}^n{\left| a_{ij} \right|^2}} \right) ^{\frac{1}{2}}
 $$
 
-Way 2: **Induced Matrix Norm** (preferred way to define the matrix norm)
+*Way 2*: **Induced Matrix Norm** (preferred way to define the matrix norm)
 
 $$
 \boldsymbol{A}\in \mathbb{R} ^{m\times n}, \boldsymbol{A}:\mathbb{R} ^n\longmapsto \mathbb{R} ^m\,\,\left( \forall \boldsymbol{x}\in \mathbb{R} ^n, \boldsymbol{Ax}\in \mathbb{R} ^m \right) 
@@ -80,7 +80,7 @@ $$
 \end{array}}\left\| \boldsymbol{Ax} \right\| 
 $$
 
-Example: 
+`Conclusion`:
 
 If $\left\| \boldsymbol{x} \right\| _1$ is taken:
 

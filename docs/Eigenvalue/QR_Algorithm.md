@@ -19,10 +19,10 @@ End
 
 ### Similarity Transformation
 
-**Task 1**: Verify that QR algorithm performs similarity transformation, that is, $\boldsymbol{A}^{\left( k \right)}\sim \boldsymbol{A}^{\left( k-1 \right)}$.
+**Task 1**: Verify that **QR algorithm performs similarity transformation**, that is, $\boldsymbol{A}^{\left( k \right)}\sim \boldsymbol{A}^{\left( k-1 \right)}$.
 
-- Step 1: $\boldsymbol{A}^{\left( k-1 \right)}=\boldsymbol{Q}^{\left( k \right)}\cdot \boldsymbol{R}^{\left( k \right)}\Leftrightarrow \left( \boldsymbol{Q}^{\left( k \right)} \right) ^T\boldsymbol{A}^{\left( k-1 \right)}=\boldsymbol{R}^{\left( k \right)}$
-- Step 2: $\boldsymbol{A}^{\left( k \right)}=\boldsymbol{R}^{\left( k \right)}\cdot \boldsymbol{Q}^{\left( k \right)}=\left( \boldsymbol{Q}^{\left( k \right)} \right) ^T\boldsymbol{A}^{\left( k-1 \right)}\boldsymbol{Q}^{\left( k \right)}\Rightarrow \boldsymbol{A}^{\left( k \right)}\sim \boldsymbol{A}^{\left( k-1 \right)}$. Then we can get:
+- *Step 1*: $\boldsymbol{A}^{\left( k-1 \right)}=\boldsymbol{Q}^{\left( k \right)}\cdot \boldsymbol{R}^{\left( k \right)}\Leftrightarrow \left( \boldsymbol{Q}^{\left( k \right)} \right) ^T\boldsymbol{A}^{\left( k-1 \right)}=\boldsymbol{R}^{\left( k \right)}$
+- *Step 2*: $\boldsymbol{A}^{\left( k \right)}=\boldsymbol{R}^{\left( k \right)}\cdot \boldsymbol{Q}^{\left( k \right)}=\left( \boldsymbol{Q}^{\left( k \right)} \right) ^T\boldsymbol{A}^{\left( k-1 \right)}\boldsymbol{Q}^{\left( k \right)}\Rightarrow \boldsymbol{A}^{\left( k \right)}\sim \boldsymbol{A}^{\left( k-1 \right)}$. Then we can get:
 
 $$
 \boldsymbol{A}^{\left( k \right)}=\left( \boldsymbol{Q}^{\left( k \right)} \right) ^T\boldsymbol{A}^{\left( k-1 \right)}\boldsymbol{Q}^{\left( k \right)}=\left( \boldsymbol{Q}^{\left( k \right)} \right) ^T\left( \boldsymbol{Q}^{\left( k-1 \right)} \right) ^T\boldsymbol{A}^{\left( k-2 \right)}\boldsymbol{Q}^{\left( k \right)}=\cdots 
@@ -38,7 +38,7 @@ If $\boldsymbol{A}^{\left( k \right)}$ converges to $\mathrm{diag}\left( \lambda
 
 ### About Phase One
 
-**Task 2**: Why do we need phase 1 before the algorithm performs?
+**Task 2**: Why do we need **phase 1** *before* the algorithm performs?
 
 Let us assume $\boldsymbol{A}$ is symmetric for simplicity, then $\boldsymbol{H}=\boldsymbol{QAQ}^T$ is tridiagonal. Starting from $\boldsymbol{H}$, the cost for each iteration is of $O(m)$ (using Given Rotation, for example).
 
@@ -48,7 +48,7 @@ Question: What is the cost per iteration if $\boldsymbol{H}$ is and upper Hessen
 
 ### Convergence
 
-**Task 3**: QR algorithm is convergent.
+**Task 3**: **QR algorithm is convergent**.
 
 > `Theorem`: Let the pure QR algorithm be applied to a real *symmetric* matrix $\boldsymbol{A}$ whose eigenvalues satisfy $\left| \lambda _1 \right|>\left| \lambda _2 \right|>\cdots >\left| \lambda _m \right|$, and the corresponding eigenmatrix $\boldsymbol{Q}$ has all *nonsingular* **leading principal submatrices**. Then as $k\rightarrow +\infty$, $\boldsymbol{A}^{\left( k \right)}$ converges **linearly** with a constant rate given by $\max_j \frac{\left| \lambda _{j+1} \right|}{\left| \lambda _j \right|}$ to diagonal matrix $\mathrm{diag}\left( \lambda _1,\lambda _2,\cdots ,\lambda _n \right)$, and $\bar{\boldsymbol{Q}}^{\left( k \right)}$ (with signs of its columns adjusted as necessary) converges to $\boldsymbol{Q}$ at the same rate.
 
@@ -58,7 +58,7 @@ The sketch of the proof (in three steps):
 
 #### Step One
 
-**Step 1**: QR algorithm is essentially equivalent to the so-called simultaneous iteration.
+***Step 1***: QR algorithm is essentially equivalent to the so-called simultaneous iteration.
 
 **Simultaneous Iteration**:
 
@@ -75,14 +75,14 @@ Claim: If we pick $\hat{\boldsymbol{Q}}^{\left( 0 \right)}=\mathbf{I}$, then the
 
 #### Step Two
 
-**Step 2**: Simultaneous iteration is a block power iteration.
+***Step 2***: Simultaneous iteration is a block Power Iteration.
 
-- Power iteration: $\boldsymbol{Z}^{\left( k \right)}=\boldsymbol{A}\hat{\boldsymbol{Q}}^{\left( k-1 \right)}$
-- Normalization and estimating eigenvalues: $\hat{\boldsymbol{Q}}^{\left( k \right)}\hat{\boldsymbol{R}}^{\left( k \right)}=\boldsymbol{Z}^{\left( k \right)}$
+- Power Iteration: $\boldsymbol{Z}^{\left( k \right)}=\boldsymbol{A}\hat{\boldsymbol{Q}}^{\left( k-1 \right)}$.
+- Normalization and estimating eigenvalues: $\hat{\boldsymbol{Q}}^{\left( k \right)}\hat{\boldsymbol{R}}^{\left( k \right)}=\boldsymbol{Z}^{\left( k \right)}$.
 
 #### Step Three
 
-**Step 3**: The block power iteration is convergent with the rate given by
+***Step 3***: The block Power Iteration is convergent with the rate given by
 
 $$
 c=\max_j \frac{\left| \lambda _{j+1} \right|}{\left| \lambda _j \right|}
@@ -90,7 +90,7 @@ $$
 
 if $\left| \lambda _1 \right|>\left| \lambda _2 \right|>\cdots >\left| \lambda _j \right|>\left| \lambda _{j+1} \right|>\cdots >\left| \lambda _m \right|\geqslant 0$. Then we get $0<c<1$.
 
-A special case for block power iteration to show the convergence (this is the essential idea):
+A special case for block Power Iteration to show the convergence (this is the essential idea):
 
 Consider $\left[ \begin{matrix}
 	{\boldsymbol{v}_1}^{\left( 0 \right)}&		{\boldsymbol{v}_{\left( 2 \right)}}^{\left( 0 \right)}\\
@@ -118,7 +118,7 @@ $$
 \end{matrix} \right] ;\cdots 
 $$
 
-$\boldsymbol{Q}$ spans the space generated by the eigenvectors $\boldsymbol{q}_1, \boldsymbol{q}_2$. We can further prove that ${\boldsymbol{v}_1}^{\left( k \right)}\rightarrow \boldsymbol{q}_1, {\boldsymbol{v}_2}^{\left( k \right)}\rightarrow \boldsymbol{q}_2$ as $k\rightarrow +\infty$
+$\boldsymbol{Q}$ spans the space generated by the eigenvectors $\boldsymbol{q}_1, \boldsymbol{q}_2$. We can further prove that ${\boldsymbol{v}_1}^{\left( k \right)}\rightarrow \boldsymbol{q}_1, {\boldsymbol{v}_2}^{\left( k \right)}\rightarrow \boldsymbol{q}_2$ as $k\rightarrow +\infty$.
 
 ## "Practical" QR Algorithm
 
@@ -192,7 +192,7 @@ where $\delta =\frac{a_{m-1}-a_m}{2}$. If $\delta =0$, set $\delta =\pm 1$ arbit
 
 ### Properties
 
-Claims:
+`Claims`:
 
 - QR algorithm with Wilkerson's Shift always converges in exact arithmetic.
 - QR algorithm is backward stable.

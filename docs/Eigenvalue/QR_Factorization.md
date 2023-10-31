@@ -1,6 +1,6 @@
 # QR Factorization
 
-QR Factorization definition:
+Definition of QR Factorization:
 
 $$
 \boldsymbol{A}=\boldsymbol{Q}\cdot \boldsymbol{R}
@@ -40,17 +40,17 @@ $$
 
 Given $\boldsymbol{A}=\left[ \begin{matrix}
 	\boldsymbol{a}_1&		\cdots&		\boldsymbol{a}_j&		\cdots&		\boldsymbol{a}_m\\
-\end{matrix} \right]$, 
+\end{matrix} \right]$;
 
 For $j=1:m$:
 
-- $\boldsymbol{v}_j=\boldsymbol{a}_j$
+- $\boldsymbol{v}_j=\boldsymbol{a}_j$;
 - For $i=1:(j-1)$:
-    - $r_{ij}=\left( \boldsymbol{q}_i, \boldsymbol{a}_j \right)$
-    - $\boldsymbol{v}_j=\boldsymbol{v}_j-r_{ij}\cdot \boldsymbol{q}_i$
+    - $r_{ij}=\left( \boldsymbol{q}_i, \boldsymbol{a}_j \right)$;
+    - $\boldsymbol{v}_j=\boldsymbol{v}_j-r_{ij}\cdot \boldsymbol{q}_i$;
 - End
-- $r_{jj}=\left\| \boldsymbol{v}_j \right\|$
-- $\boldsymbol{q}_j=\frac{\boldsymbol{v}_j}{r_{jj}}$
+- $r_{jj}=\left\| \boldsymbol{v}_j \right\|$;
+- $\boldsymbol{q}_j=\frac{\boldsymbol{v}_j}{r_{jj}}$;
 
 End
 
@@ -64,28 +64,28 @@ The outcome: $\boldsymbol{Q}=\left[ \begin{matrix}
 
 Given $\boldsymbol{A}=\left[ \begin{matrix}
 	\boldsymbol{a}_1&		\cdots&		\boldsymbol{a}_j&		\cdots&		\boldsymbol{a}_m\\
-\end{matrix} \right]$, 
+\end{matrix} \right]$;
 
 For $i=1:m$:
 
-- $\boldsymbol{v}_i=\boldsymbol{a}_i$
+- $\boldsymbol{v}_i=\boldsymbol{a}_i$;
 
 End
 
 For $i=1:m$:
 
-- $r_{ii}=\left\| \boldsymbol{v}_i \right\|$
-- $\boldsymbol{q}_i=\frac{\boldsymbol{v}_i}{r_{ii}}$
+- $r_{ii}=\left\| \boldsymbol{v}_i \right\|$;
+- $\boldsymbol{q}_i=\frac{\boldsymbol{v}_i}{r_{ii}}$;
 - For $j=(i+1):m$:
-    - $r_{ij}=\left( \boldsymbol{q}_i, \boldsymbol{v}_j \right)$
-    - $\boldsymbol{v}_j=\boldsymbol{v}_j-r_{ij}\cdot \boldsymbol{q}_i$
+    - $r_{ij}=\left( \boldsymbol{q}_i, \boldsymbol{v}_j \right)$;
+    - $\boldsymbol{v}_j=\boldsymbol{v}_j-r_{ij}\cdot \boldsymbol{q}_i$;
 - End
 
 End
 
 `Claim`: The modified Gram-Schmidt algorithm is stable.
 
-Questions:
+***Questions***:
 
 1. Why classical and modified Gram-Schmidt are equivalent?
 2. Intuitively, why is the classical one not stable, while the modified one stable?
@@ -94,7 +94,7 @@ The cost of the modified Gram-Schmidt is $O(2mn^2)$ for $\boldsymbol{A}\in \math
 
 ## Discussion on QR Factorization
 
-`Theorem`: Every matrix $\boldsymbol{A}\in \mathbb{R} ^{m\times n}\,\,\left( m\geqslant n \right)$ has a QR factorization.
+`Theorem`: Every matrix $\boldsymbol{A}\in \mathbb{R} ^{m\times n}\,\,\left( m\geqslant n \right)$ has a QR Factorization.
 
 If column vectors of $\boldsymbol{A}$ are linearly independent(full rank), then
 
@@ -102,7 +102,7 @@ $$
 \left[ \boldsymbol{A} \right] _{m\times n}=\left[ \boldsymbol{Q} \right] _{m\times n}\cdot \left[ \boldsymbol{R} \right] _{n\times n}
 $$
 
-This is **reduced QR factorization**(default). The other one:
+This is **Reduced QR Factorization**(default). The other one:
 
 $$
 \left[ \boldsymbol{A} \right] _{m\times n}=\underset{\boldsymbol{Q}}{\underbrace{\left[ {\boldsymbol{Q}_0}^{m\times n}|\cdots \right] _{m\times m}}}\cdot \underset{\boldsymbol{R}}{\underbrace{\left[ \begin{array}{c}
@@ -111,11 +111,11 @@ $$
 \end{array} \right] _{m\times n}}}
 $$
 
-is called **full QR factorization**(rarely used).
+is called **Full QR Factorization**(rarely used).
 
-`Theorem`: If $\boldsymbol{A}\in \mathbb{R} ^{m\times n}\,\,\left( m\geqslant n \right)$ is full rank, the reduced QR factorization is **unique** if we require $r_{ii}>0, i=1,\cdots ,n$.
+`Theorem`: If $\boldsymbol{A}\in \mathbb{R} ^{m\times n}\,\,\left( m\geqslant n \right)$ is full rank, the Reduced QR Factorization is **unique** if we require $r_{ii}>0, i=1,\cdots ,n$.
 
-We can use QR factorization to solve linear systems (least square solution):
+We can use QR Factorization to solve linear systems (least square solution):
 
 $$
 \boldsymbol{A}=\boldsymbol{QR}
@@ -136,7 +136,7 @@ Two types of orthogonal linear transformation:
 1. **Rotation**
 2. **Reflection**
 
-Actually, there are other ways to computer QR factorization using unitary matrices to generate upper triangular matrix (Using unitary transformation):
+Actually, there are other ways to computer QR Factorization using unitary matrices to generate upper triangular matrix (Using unitary transformation):
 
 $$
 \underset{\boldsymbol{Q}^{-1}}{\underbrace{\boldsymbol{Q}_n\boldsymbol{Q}_{n-1}\cdots \boldsymbol{Q}_1}}\cdot \boldsymbol{A}=\boldsymbol{R}
@@ -212,7 +212,7 @@ $$
 \boldsymbol{Q}_1\boldsymbol{x}=-\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1
 $$
 
-Question: why not choose $\mathbf{H}_2$ and get $\boldsymbol{v}=\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1-\boldsymbol{x}$?
+`Question`: why not choose $\mathbf{H}_2$ and get $\boldsymbol{v}=\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1-\boldsymbol{x}$?
 
 We have two choices: $\boldsymbol{Q}_1\boldsymbol{x}=-\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1, \boldsymbol{Q}_1\boldsymbol{x}=\left\| \boldsymbol{x} \right\| \boldsymbol{e}_1$. 
 
@@ -251,14 +251,14 @@ $$
 
 ### Householder QR Factorization
 
-Here is the algorithm for Householder QR factorization for a matrix $\boldsymbol{A}\in \mathbb{R} ^{m\times n}$ :
+Here is the algorithm for Householder QR Factorization for a matrix $\boldsymbol{A}\in \mathbb{R} ^{m\times n}$ :
 
 For $k=1:m$:
 
-- $\boldsymbol{x}=\boldsymbol{A}_{k:m,k}$
-- $\boldsymbol{v}_k=-\mathrm{sign}\left( x_1 \right) \cdot \left\| \boldsymbol{x} \right\| \boldsymbol{e}_1-\boldsymbol{x}$
-- $\boldsymbol{v}_k=\frac{\boldsymbol{v}_k}{\left\| \boldsymbol{v}_k \right\|}$
-- $\boldsymbol{A}_{k:m,k:n}=\boldsymbol{A}_{k:m,k:n}-2\boldsymbol{v}_k\left( {\boldsymbol{v}_k}^T\boldsymbol{A}_{k:m,k:n} \right)$
+- $\boldsymbol{x}=\boldsymbol{A}_{k:m,k}$;
+- $\boldsymbol{v}_k=-\mathrm{sign}\left( x_1 \right) \cdot \left\| \boldsymbol{x} \right\| \boldsymbol{e}_1-\boldsymbol{x}$;
+- $\boldsymbol{v}_k=\frac{\boldsymbol{v}_k}{\left\| \boldsymbol{v}_k \right\|}$;
+- $\boldsymbol{A}_{k:m,k:n}=\boldsymbol{A}_{k:m,k:n}-2\boldsymbol{v}_k\left( {\boldsymbol{v}_k}^T\boldsymbol{A}_{k:m,k:n} \right)$;
 
 End
 
