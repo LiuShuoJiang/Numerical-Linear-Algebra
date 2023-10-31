@@ -1,9 +1,15 @@
 # Numerical Linear Algebra Notes
 
-Author: [Shuojiang Liu](https://github.com/LiuShuoJiang)
+***Author***: [Shuojiang Liu](https://github.com/LiuShuoJiang)
 
-[Introduction to Numerical Linear Algebra](./Basics/README.md)
+This site documents the detailed notes on my study of Numerical Linear Algebra, the content of which is derived from synthesizing and contemplating the content of the Georgia Tech MATH 6643 course I am taking.
 
-[Condition and Stability](./Condition%20and%20Stability/README.md)
+!!! note
 
-[Eigenvalues Solving](./Eigenvalue/README.md)
+    This site is still under active construction.
+
+***Contents***:
+
+1. [Introduction to Numerical Linear Algebra](./Basics/README.md)
+2. [Condition and Stability](./Condition%20and%20Stability/README.md)
+3. [Eigenvalues Solving](./Eigenvalue/README.md)
