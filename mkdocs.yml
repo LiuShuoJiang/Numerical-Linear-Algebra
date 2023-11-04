@@ -77,4 +77,10 @@ nav:
     - QR Algorithm: Eigenvalue/QR_Algorithm.md
     - Divide and Conquer: Eigenvalue/Divide_and_Conquer.md
     - SVD: Eigenvalue/SVD.md
+  - Iterative Methods:
+    - Iterative Methods/README.md
+    - Classical Iteration Methods: Iterative Methods/Classical_Iteration.md
+  - Miscellaneous Topics:
+    - Miscellaneous/README.md
+    - Least Square Problems: Miscellaneous/Least_Square.md
 
