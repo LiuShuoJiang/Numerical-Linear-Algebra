@@ -72,7 +72,8 @@ $$
 \boldsymbol{x}^{\left( k+1 \right)}=\boldsymbol{D}^{-1}\left[ \boldsymbol{b}+\left( \boldsymbol{E}+\boldsymbol{F} \right) \boldsymbol{x}^{\left( k \right)} \right] 
 $$
 
-This is the matrix representation for Jacobi Iteration.
+This is the matrix representation for Jacobi Iteration. The iterative matrix is $\boldsymbol{M}_{\mathrm{jacobi}}=\boldsymbol{D}^{-1}\left( \boldsymbol{E}+\boldsymbol{F} \right)$.
+
 
 ## Gauss-Seidel Iteration
 
@@ -86,7 +87,7 @@ $$
 
 End
 
-This is **Gauss-Seidel Iteration**.
+This is **Forward Gauss-Seidel Iteration**.
 
 From:
 
@@ -104,17 +105,21 @@ $$
 \boldsymbol{x}^{\left( k+1 \right)}=\left( \boldsymbol{D}-\boldsymbol{E} \right) ^{-1}\left( \boldsymbol{b}+\boldsymbol{Fx}^{\left( k \right)} \right) 
 $$
 
-This is the matrix expression for Gauss-Seidel Iteration.
+This is the matrix expression for Gauss-Seidel Iteration. The iterative matrix is $\boldsymbol{M}_{\mathrm{FGS}}=\left( \boldsymbol{D}-\boldsymbol{E} \right) ^{-1}\boldsymbol{F}$.
 
-We have another option:
+We have another option (**Backward Gauss-Seidel Iteration**):
 
 $$
 \boldsymbol{x}^{\left( k+1 \right)}=\left( \boldsymbol{D}-\boldsymbol{F} \right) ^{-1}\left( \boldsymbol{b}+\boldsymbol{Ex}^{\left( k \right)} \right) 
 $$
 
-What is the component-wise formula for this option?
+The iterative matrix for it is $\boldsymbol{M}_{\mathrm{BGS}}=\left( \boldsymbol{D}-\boldsymbol{F} \right) ^{-1}\boldsymbol{E}$. What is the component-wise formula for this option?
 
-`Note`: **Symmetric Gauss-Seidel Iteration** iterates $i=1,2,\cdots ,m-1,m$ , followed by $i=m,m-1,\cdots ,2,1$.
+$$
+{x_i}^{\left( k+1 \right)}=\frac{1}{a_{ii}}\left[ b_i-\left( \sum_{j=1}^{i-1}{a_{ij}{x_j}^{\left( k \right)}}+\sum_{j=i+1}^m{a_{ij}{x_j}^{\left( k+1 \right)}} \right) \right] 
+$$
+
+`Note`: **Symmetric Gauss-Seidel Iteration** iterates $i=1,2,\cdots ,m-1,m$ , followed by $i=m,m-1,\cdots ,2,1$. A symmetric Gauss-Seidel iteration is a forward Gauss-Seidel Iteration followed by a backward Gauss-Seidel Iteration. The iterative matrix is $\boldsymbol{M}_{\mathrm{SGS}}=\boldsymbol{M}_{\mathrm{BGS}}\cdot \boldsymbol{M}_{\mathrm{FGS}}=\left( \boldsymbol{D}-\boldsymbol{F} \right) ^{-1}\boldsymbol{E}\left( \boldsymbol{D}-\boldsymbol{E} \right) ^{-1}\boldsymbol{F}$.
 
 ## Successive Over-Relaxation (SOR)
 

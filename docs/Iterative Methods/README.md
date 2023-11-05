@@ -10,3 +10,5 @@ Why do we need iterative methods?
   - Iterative methods are especially useful if $\boldsymbol{A}$ is not known explicitly (e.g., black box, PDE).
 
 [Classical Methods](./Classical_Iteration.md)
+
+[General Strategy of Iteration Methods](./Introduction_to_Iteration.md)
