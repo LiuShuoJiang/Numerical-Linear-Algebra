@@ -98,7 +98,7 @@ $$
 
 `Theorem`: If $\boldsymbol{A}$ is a strongly diagonally dominant matrix, then the associate Jacobi, Gauss-Seidel iterations converge for any $\boldsymbol{x}^{(0)}$.
 
-`Theorem`: If $\boldsymbol{A}$ is symmetric with positive disgonal elements, and $\omega \in \left( 0,2 \right)$, then SOR converges for any $\boldsymbol{x}^{(0)}$ if and only if $\boldsymbol{A}$ is positive definite.
+`Theorem`: If $\boldsymbol{A}$ is symmetric with positive diagonal elements, and $\omega \in \left( 0,2 \right)$, then SOR converges for any $\boldsymbol{x}^{(0)}$ if and only if $\boldsymbol{A}$ is positive definite.
 
 `Theorem`([**Gershgorin Theroem**](https://en.wikipedia.org/wiki/Gershgorin_circle_theorem)): Given $\boldsymbol{A}\in \mathbb{R} ^{m\times m}$, the eigenvalues of $\boldsymbol{A}$ are contained in the union of the following disks:
 
