@@ -270,18 +270,22 @@ End
 
 ## Givens Rotation as QR Factorization
 
+$$
+\boldsymbol{A}={\boldsymbol{T}_{12}}^*\cdots {\boldsymbol{T}_{1n}}^*{\boldsymbol{T}_{23}}^*\cdots {\boldsymbol{T}_{2n}}^*\cdots {\boldsymbol{T}_{n-1,n}}^*\boldsymbol{R}=\boldsymbol{QR}
+$$
+
 The core element of Givens Rotation:
 
 $$
-\boldsymbol{J}\left( i,k,\theta \right) =\left[ \begin{matrix}
+\boldsymbol{T}_{pq}=\left[ \begin{matrix}
 	1&		&		&		&		&		&		&		&		&		&		\\
 	&		\ddots&		&		\vdots&		&		&		&		\vdots&		&		&		\\
 	&		&		1&		&		&		&		&		&		&		&		\\
-	&		\cdots&		&		c_{\left( i,i \right)}&		&		\cdots&		&		s_{\left( i,k \right)}&		&		\cdots&		\\
+	&		\cdots&		&		\bar{c}_{\left( p,p \right)}&		&		\cdots&		&		\bar{s}_{\left( p,q \right)}&		&		\cdots&		\\
 	&		&		&		&		1&		&		&		&		&		&		\\
 	&		&		&		\vdots&		&		\ddots&		&		\vdots&		&		&		\\
 	&		&		&		&		&		&		1&		&		&		&		\\
-	&		\cdots&		&		s_{\left( k,i \right)}&		&		\cdots&		&		c_{\left( k,k \right)}&		&		\cdots&		\\
+	&		\cdots&		&		-s_{\left( q,p \right)}&		&		\cdots&		&		c_{\left( q,q \right)}&		&		\cdots&		\\
 	&		&		&		&		&		&		&		&		1&		&		\\
 	&		&		&		\vdots&		&		&		&		\vdots&		&		\ddots&		\\
 	&		&		&		&		&		&		&		&		&		&		1\\
@@ -301,16 +305,16 @@ $$
 	x_1\\
 	x_2\\
 	\vdots\\
-	x_i\\
+	x_p\\
 	\vdots\\
-	x_k\\
+	x_q\\
 	\vdots\\
 	x_n\\
-\end{array} \right] : \left[ \begin{array}{c}
-	x_i\\
-	x_k\\
+\end{array} \right] :\left[ \begin{array}{c}
+	x_p\\
+	x_q\\
 \end{array} \right] \rightarrow \left[ \begin{array}{c}
-	\pm \sqrt{{x_i}^2+{x_k}^2}\\
+	\pm \sqrt{{x_p}^2+{x_q}^2}\\
 	0\\
 \end{array} \right] 
 $$
