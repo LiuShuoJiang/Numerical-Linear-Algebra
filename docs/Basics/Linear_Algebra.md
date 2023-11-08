@@ -103,3 +103,24 @@ $$
 
 What about induced 2-norms? It turns out that we cannot find a formula for it!
 
+The 2-norm(spectral norm) of a matrix $\boldsymbol{A}$ is the largest singular value of $\boldsymbol{A}$ (i.e., the square root of the largest eigenvalue of the matrix $\boldsymbol{A}^{*}\boldsymbol{A}$, where $\boldsymbol{A}^{*}$ denotes the conjugate transpose of $\boldsymbol{A}$ ):
+
+$$
+\left\| \boldsymbol{A} \right\| _2=\sqrt{\lambda _{\max}\left( \boldsymbol{A}^*\boldsymbol{A} \right)}=\sigma _{\max}\left( \boldsymbol{A} \right) 
+$$
+
+## Spectral Radius
+
+The **Spectral Radius** of a square matrix is the maximum of the absolute values of its eigenvalues.
+
+Let $\lambda _1,\lambda _2,\cdots ,\lambda _n$ be the eigenvalues of a matrix $\boldsymbol{A}\in \mathbb{C} ^{n\times n}$. Then the spectral radius of $\boldsymbol{A}$ is defined as:
+
+$$
+\rho \left( \boldsymbol{A} \right) =\max \left( \left| \lambda _1 \right|,\left| \lambda _2 \right|,\cdots ,\left| \lambda _n \right| \right) 
+$$
+
+If $\boldsymbol{A}$ satisfies $\boldsymbol{AA}^*=\boldsymbol{A}^*\boldsymbol{A}$ ([***Normal Matrix***](https://en.wikipedia.org/wiki/Normal_matrix)), then:
+
+$$
+\rho \left( \boldsymbol{A} \right) =\left\| \boldsymbol{A} \right\| _2
+$$
