@@ -81,6 +81,7 @@ nav:
     - Iterative Methods/README.md
     - Classical Iteration Methods: Iterative Methods/Classical_Iteration.md
     - General Strategy of Iteration Methods: Iterative Methods/Introduction_to_Iteration.md
+    - Projection Methods: Iterative Methods/Projection_Method.md
   - Miscellaneous Topics:
     - Miscellaneous/README.md
     - Least Square Problems: Miscellaneous/Least_Square.md
