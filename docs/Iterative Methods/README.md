@@ -12,3 +12,5 @@ Why do we need iterative methods?
 [Classical Methods](./Classical_Iteration.md)
 
 [General Strategy of Iteration Methods](./Introduction_to_Iteration.md)
+
+[Projection Method](./Projection_Method.md)
