@@ -42,7 +42,6 @@ $$
 \end{matrix} \right] 
 $$
 
-
 Then:
 
 $$
@@ -109,9 +108,7 @@ Until convergence, do:
 
 End
 
-## Examples
-
-### Gauss-Seidel Method
+## Gauss-Seidel Method
 
 `Example`: Gauss-Seidel is a Projection Method by taking $\mathbf{K}=\mathbf{L}=\mathrm{span}\left\{ \boldsymbol{e}_i \right\}$. Then:
 
@@ -161,9 +158,9 @@ $$
 \delta _i=\frac{1}{a_{ii}}\left( b_i-\sum_{j=1}^m{a_{ij}{x_j}^{\left( 0 \right)}} \right) 
 $$
 
-### Steepest Descent Method
+## Steepest Descent Method
 
-#### Introduction to Steepest Descent
+### Introduction to Steepest Descent
 
 `Example`: Assume $\boldsymbol{A}$ is SPD, and $\boldsymbol{r}$ is the current residual. We pick $\mathbf{L}=\mathbf{K}=\mathrm{span}\left\{ \boldsymbol{r} \right\}$. Then:
 
@@ -211,11 +208,11 @@ For $k=1,2,\cdots$:
 
 End
 
-#### Discussion on Steepest Descent
+### Discussion on Steepest Descent
 
 `Question`: Why is it called Steepest Descent? Whys is $\alpha$ optimal?
 
-##### First Perspective (from error viewpoint)
+#### First Perspective (From Error Viewpoint)
 
 Assume $\boldsymbol{x}^*$ is the true solution. We define the error as $\boldsymbol{e}=\boldsymbol{x}-\boldsymbol{x}^*$. Also define $f\left( \boldsymbol{x} \right) =\boldsymbol{e}^T\boldsymbol{Ae}\triangleq \left\| \boldsymbol{e} \right\| _{\boldsymbol{A}}^{2}$ as the $\boldsymbol{A}$-norm.
 
@@ -259,7 +256,7 @@ $$
 
 This is the optimal solution for $\alpha$.
 
-##### Second Perspective (Quadratic Optimization)
+#### Second Perspective (Quadratic Optimization)
 
 We define:
 
@@ -288,3 +285,151 @@ $$
 is the optimal choice along $\boldsymbol{r}$.
 
 We can examine the level set of $f\left( \boldsymbol{x} \right)$ or $g\left( \boldsymbol{x} \right)$ to get geometric properties.
+
+### Further Remarks on Steepest Descent
+
+Consider two case for $\boldsymbol{A}$:
+
+- `Case 1`: Eigenvalues $\frac{\lambda _{\max}}{\lambda _{\min}}\sim O\left( 1 \right)$ (nearly a circle, fast convergence);
+- `Case 2`: Eigenvalues $\frac{\lambda _{\max}}{\lambda _{\min}}\gg 1$ (nearly a very flat oval, slow convergence).
+
+The condition number of $\boldsymbol{A}$ determines the speed of convergence:
+
+- If $\kappa \left( \boldsymbol{A} \right) \gg 1$, we call $\boldsymbol{A}$ ***ill-conditioned***;
+- Otherwise, we call $\boldsymbol{A}$ ***well-conditioned***.
+
+Now, consider the projection method again:
+
+$$
+\begin{cases}
+	\boldsymbol{r}=\boldsymbol{b}-\boldsymbol{Ax}\\
+	\boldsymbol{y}=\left( \boldsymbol{W}^T\boldsymbol{AV} \right) ^{-1}\boldsymbol{W}^T\boldsymbol{r}\\
+	\boldsymbol{x}=\boldsymbol{x}+\boldsymbol{Vy}\\
+\end{cases}
+$$
+
+The algorithm can be *continued* (does not necessarily mean convergence) if $\boldsymbol{W}^T\boldsymbol{AV}$ is *invertible*.
+
+`Question`: How do we ensure that $\boldsymbol{W}^T\boldsymbol{AV}$ is invertible?
+
+If $\boldsymbol{A}$ is invertible, it is not necessarily true that $\boldsymbol{W}^T\boldsymbol{AV}$ is also invertible. For example, consider:
+
+$$
+\boldsymbol{A}=\left[ \begin{matrix}
+	\boldsymbol{O}&		\mathbf{I}_{\left( \mathrm{r}\ \mathrm{rows} \right)}\\
+	\mathbf{I}_{\left( \mathrm{r}\ \mathrm{cols} \right)}&		\mathbf{I}\\
+\end{matrix} \right] , \boldsymbol{V}=\boldsymbol{W}=\left[ \begin{array}{c}
+	\mathbf{I}\\
+	\boldsymbol{O}\\
+\end{array} \right] ;
+$$
+
+$$
+\Rightarrow \boldsymbol{W}^T\boldsymbol{AV}=\boldsymbol{O}
+$$
+
+`Theorem`: Let $\boldsymbol{A},\boldsymbol{L},\boldsymbol{K}$ satisfy either one of the following conditions:
+
+1. $\boldsymbol{A}$ is SPD and $\boldsymbol{L}=\boldsymbol{K}$;
+2. $\boldsymbol{A}$ is invertible and $\boldsymbol{L}=\boldsymbol{AK}$.
+
+Then the matrix $\boldsymbol{W}^T\boldsymbol{AV}$ is nonsingular for any $\boldsymbol{V}, \boldsymbol{W}$ of $\boldsymbol{K},\boldsymbol{L}$ respectively.
+
+`Proof`: $\boldsymbol{L}=\boldsymbol{AK}$ means that $\forall \boldsymbol{v}\in \boldsymbol{K}, \boldsymbol{Av}\in \boldsymbol{L}$, and $\forall \boldsymbol{u}\in \boldsymbol{L}$, there exists $\boldsymbol{v}\in \boldsymbol{K}$ such that $\boldsymbol{u}=\boldsymbol{Av}$.
+
+***First situation***: Since $\boldsymbol{L}=\boldsymbol{K}$, and $\boldsymbol{V},\boldsymbol{W}$ are two bases, then $\boldsymbol{W}=\boldsymbol{VG}$, where $\boldsymbol{G}$ is the change of basis matrix ( $\boldsymbol{G}$ is invertible). We can get:
+
+$$
+\boldsymbol{W}^T\boldsymbol{AV}=\left( \boldsymbol{VG} \right) ^T\boldsymbol{AV}=\underset{\mathrm{invertible}}{\underbrace{\boldsymbol{G}^T}}\cdot \underset{\mathrm{invertible}}{\underbrace{\boldsymbol{V}^T\boldsymbol{AV}}}
+$$
+
+Then $\boldsymbol{W}^T\boldsymbol{AV}$ is invertible.
+
+***Second situation***: Pick $\boldsymbol{L}=\boldsymbol{AK}$, then $\boldsymbol{AV}$ is a basis for $\boldsymbol{L}$. $\boldsymbol{W}$ is also a basis for $\boldsymbol{L}$. There exists a change of basis matrix $\boldsymbol{G}$ (invertible) such that $\boldsymbol{AVG}=\boldsymbol{W}$. Then:
+
+$$
+\boldsymbol{W}^T\boldsymbol{AV}=\boldsymbol{G}^T\left( \boldsymbol{AV} \right) ^T\boldsymbol{AV}=\boldsymbol{G}^T\boldsymbol{V}^T\boldsymbol{A}^T\boldsymbol{AV}
+$$
+
+$\boldsymbol{A}^T\boldsymbol{A}$ is SPD because $\boldsymbol{A}$ is nonsingular. Since $\boldsymbol{V}^T\boldsymbol{A}^T\boldsymbol{AV}$ and $\boldsymbol{G}^T$ are invertible, we can get $\boldsymbol{W}^T\boldsymbol{AV}$ is invertible.
+
+Therefore, the projection method can be continued.
+
+`Example`: Assume $\boldsymbol{A}$ is SPD, pick $\boldsymbol{L}=\boldsymbol{K}$. Let $\boldsymbol{K}=\boldsymbol{L}=\mathrm{span}\left\{ \boldsymbol{r}^{\left( j \right)},\boldsymbol{p}^{\left( j-1 \right)} \right\}$ where $\boldsymbol{p}^{\left( j-1 \right)}$ is the search direction in the previous step and $\boldsymbol{r}^{\left( j \right)}$ is the current residual. This is Conjugate Gradient Method.
+
+## Conjugate Gradient Method (CG)
+
+Algorithm ( **Conjugate Gradient Method** ):
+
+Compute $\boldsymbol{r}^{\left( 0 \right)}=\boldsymbol{b}-\boldsymbol{Ax}^{\left( 0 \right)}$, and set $\boldsymbol{p}^{\left( 0 \right)}=\boldsymbol{r}^{\left( 0 \right)}$;
+
+For $j=0,1,\cdots$ until convergence, do:
+
+- $\alpha _j=\frac{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right>}{\left< \boldsymbol{p}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right>}$;
+- $\boldsymbol{x}^{\left( j+1 \right)}=\boldsymbol{x}^{\left( j \right)}+\alpha _j\boldsymbol{p}^{\left( j \right)}$;
+- $\boldsymbol{r}^{\left( j+1 \right)}=\boldsymbol{r}^{\left( j \right)}-\alpha _j\boldsymbol{Ap}^{\left( j \right)}$;
+- $\tau _j=\frac{\left< \boldsymbol{r}^{\left( j+1 \right)},\boldsymbol{r}^{\left( j+1 \right)} \right>}{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right>}$;
+- $\boldsymbol{p}^{\left( j+1 \right)}=\boldsymbol{r}^{\left( j+1 \right)}+\tau _j\boldsymbol{p}^{\left( j \right)}$;
+
+End
+
+The most expensive part computation of this algorithm is computing $\boldsymbol{Ap}$, whose cost is $O(m^2)$. It is needed for only one time!
+
+How can we derive the CG method?
+
+Do the projection method with $\boldsymbol{K}=\boldsymbol{L}=\mathrm{span}\left\{ \boldsymbol{r}^{\left( j \right)},\boldsymbol{p}^{\left( j-1 \right)} \right\}$:
+
+$$
+\boldsymbol{x}^{\left( j+1 \right)}=\boldsymbol{x}^{\left( j \right)}+\boldsymbol{\delta }^{\left( j \right)}
+$$
+
+where $\boldsymbol{\delta }^{\left( j \right)}\in \boldsymbol{K}$. Then:
+
+$$
+\boldsymbol{r}^{\left( j+1 \right)}=\boldsymbol{b}-\boldsymbol{Ax}^{\left( j+1 \right)}
+$$
+
+We know that:
+
+$$
+\boldsymbol{r}^{\left( j+1 \right)}\bot \boldsymbol{L}=\mathrm{span}\left\{ \boldsymbol{r}^{\left( j \right)},\boldsymbol{p}^{\left( j-1 \right)} \right\}
+$$
+
+$$
+\left< \boldsymbol{r}^{\left( j+1 \right)},\boldsymbol{r}^{\left( j \right)} \right> =0, \left< \boldsymbol{r}^{\left( j+1 \right)},\boldsymbol{p}^{\left( j-1 \right)} \right> =0
+$$
+
+Since $\boldsymbol{\delta }^{\left( j \right)}\in \boldsymbol{K}$, then we can write $\boldsymbol{\delta }^{\left( j \right)}=\alpha _j\left( \boldsymbol{r}^{\left( j \right)}+\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)} \right)$, where $\boldsymbol{r}^{\left( j \right)}+\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)}$ is the new search direction.
+
+$$
+\boldsymbol{p}^{\left( j \right)}=\boldsymbol{r}^{\left( j \right)}+\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)}
+\\
+\Rightarrow \boldsymbol{r}^{\left( j \right)}=\boldsymbol{p}^{\left( j \right)}-\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)}
+$$
+
+where $\alpha _j,\tau _{j-1}$ are to be determined.
+
+We can claim that (How to prove?):
+
+$$
+\boldsymbol{r}^{\left( j+1 \right)}=\boldsymbol{r}^{\left( j \right)}-\alpha _j\boldsymbol{Ap}^{\left( j \right)}
+$$
+
+Because:
+
+$$
+0=\left< \boldsymbol{r}^{\left( j+1 \right)},\boldsymbol{r}^{\left( j \right)} \right> =\left< \boldsymbol{r}^{\left( j \right)}-\alpha _j\boldsymbol{Ap}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right> =\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right> -\alpha _j\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right> 
+$$
+
+we get:
+
+$$
+\alpha _j=\frac{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right>}{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right>}
+$$
+
+Also:
+
+$$
+0=\left< \boldsymbol{r}^{\left( j+1 \right)},\boldsymbol{p}^{\left( j-1 \right)} \right> \Rightarrow \tau _{j-1}=\frac{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right>}{\left< \boldsymbol{r}^{\left( j-1 \right)},\boldsymbol{r}^{\left( j-1 \right)} \right>}
+$$
+
