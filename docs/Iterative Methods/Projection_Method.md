@@ -415,6 +415,34 @@ $$
 \boldsymbol{r}^{\left( j+1 \right)}=\boldsymbol{r}^{\left( j \right)}-\alpha _j\boldsymbol{Ap}^{\left( j \right)}
 $$
 
+Prove:
+
+$$
+\boldsymbol{p}^{\left( j \right)}=\boldsymbol{r}^{\left( j \right)}+\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)},\Leftrightarrow \boldsymbol{r}^{\left( j \right)}=\boldsymbol{p}^{\left( j \right)}-\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)};
+$$
+
+$$
+\boldsymbol{r}^{\left( j+1 \right)}=\boldsymbol{b}-\boldsymbol{Ax}^{\left( j+1 \right)}=\boldsymbol{b}-\boldsymbol{A}\left( \boldsymbol{x}^{\left( j \right)}+\boldsymbol{\delta }^{\left( j \right)} \right) 
+$$
+
+$$
+=\left( \boldsymbol{b}-\boldsymbol{Ax}^{\left( j \right)} \right) -\boldsymbol{A\delta }^{\left( j \right)}=\boldsymbol{r}^{\left( j \right)}-\boldsymbol{A}\delta ^{\left( j \right)}
+$$
+
+$$
+=\boldsymbol{r}^{\left( j \right)}-\boldsymbol{A}\alpha _j\left( \boldsymbol{r}^{\left( j \right)}+\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)} \right) 
+$$
+
+$$
+=\boldsymbol{r}^{\left( j \right)}-\alpha _j\boldsymbol{A}\left( \boldsymbol{p}^{\left( j \right)}-\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)} \right) -\alpha _j\tau _{j-1}\boldsymbol{Ap}^{\left( j-1 \right)}
+$$
+
+$$
+=\boldsymbol{r}^{\left( j \right)}-\alpha _j\boldsymbol{Ap}^{\left( j \right)}
+$$
+
+We get the result.
+
 Because:
 
 $$
@@ -433,3 +461,29 @@ $$
 0=\left< \boldsymbol{r}^{\left( j+1 \right)},\boldsymbol{p}^{\left( j-1 \right)} \right> \Rightarrow \tau _{j-1}=\frac{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right>}{\left< \boldsymbol{r}^{\left( j-1 \right)},\boldsymbol{r}^{\left( j-1 \right)} \right>}
 $$
 
+It can be proved that CG satisfies the following properties:
+
+- $\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( i \right)} \right> =0, i\ne j;$
+- $\left< \boldsymbol{Ap}^{\left( j \right)},\boldsymbol{p}^{\left( i \right)} \right> =0,i\ne j$
+
+We can show:
+
+$$
+\alpha _j=\frac{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right>}{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right>}=\frac{\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( j \right)} \right>}{\left< \boldsymbol{p}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right>},
+$$
+
+$$
+\Longleftarrow \left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right> =\left< \boldsymbol{p}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right> ;
+$$
+
+$$
+\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right> =\left< \boldsymbol{p}^{\left( j \right)}-\tau _{j-1}\boldsymbol{p}^{\left( j-1 \right)},\boldsymbol{Ap}^{\left( j \right)} \right> 
+$$
+
+$$
+=\left< \boldsymbol{p}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right> -\tau _{j-1}\left< \boldsymbol{p}^{\left( j-1 \right)},\boldsymbol{Ap}^{\left( j \right)} \right> 
+$$
+
+$$
+=\left< \boldsymbol{p}^{\left( j \right)},\boldsymbol{Ap}^{\left( j \right)} \right> 
+$$
