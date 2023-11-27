@@ -82,7 +82,7 @@ nav:
     - Classical Iteration Methods: Iterative Methods/Classical_Iteration.md
     - General Strategy of Iteration Methods: Iterative Methods/Introduction_to_Iteration.md
     - Projection Methods: Iterative Methods/Projection_Method.md
-    - Krylov Subspace: Iterative Methods\Projection_Method_2.md
+    - Krylov Subspace: Iterative Methods/Projection_Method_2.md
   - Miscellaneous Topics:
     - Miscellaneous/README.md
     - Least Square Problems: Miscellaneous/Least_Square.md
