@@ -120,3 +120,143 @@ $$
 
 We need to determine $\xi _n\boldsymbol{p}_n$ such that $\boldsymbol{x}^{\left( 0 \right)}$ is the solution of the projection method.
 
+Summarize what we have got so far:
+
+$$
+\boldsymbol{x}^{\left( n \right)}=\boldsymbol{x}^{\left( 0 \right)}+\boldsymbol{P}_n\boldsymbol{z}_n,
+$$
+
+$$
+\boldsymbol{P}_n=\boldsymbol{V}_n{\boldsymbol{U}_n}^{-1}, \boldsymbol{z}_n={\boldsymbol{L}_n}^{-1}\beta _1\boldsymbol{e}_1;
+$$
+
+$$
+\boldsymbol{P}_n=\left[ \begin{matrix}
+	\boldsymbol{p}_1&		\boldsymbol{p}_2&		\cdots&		\boldsymbol{p}_n\\
+\end{matrix} \right] ,
+$$
+
+$$
+\boldsymbol{x}_n=\boldsymbol{x}^{\left( 0 \right)}+\boldsymbol{P}_{n-1}\boldsymbol{z}_{n-1}+\xi _n\boldsymbol{p}_n=\boldsymbol{x}^{\left( n-1 \right)}+\xi _n\boldsymbol{p}_n
+$$
+
+Note that:
+
+$$
+\boldsymbol{P}_n=\boldsymbol{V}_n{\boldsymbol{U}_n}^{-1}\Leftrightarrow \boldsymbol{P}_n\boldsymbol{U}_n=\boldsymbol{V}_n,
+$$
+
+$$
+\left[ \begin{matrix}
+	\boldsymbol{p}_1&		\boldsymbol{p}_2&		\cdots&		\boldsymbol{p}_n\\
+\end{matrix} \right] \cdot \left[ \begin{matrix}
+	\eta _1&		\beta _2&		0&		\cdots&		\boldsymbol{O}\\
+	0&		\eta _2&		\beta _3&		\ddots&		\vdots\\
+	&		\ddots&		\ddots&		\ddots&		0\\
+	&		&		\ddots&		\ddots&		\beta _n\\
+	\boldsymbol{O}&		&		&		0&		\eta _n\\
+\end{matrix} \right] =\left[ \begin{matrix}
+	\boldsymbol{v}_1&		\boldsymbol{v}_2&		\cdots&		\boldsymbol{v}_n\\
+\end{matrix} \right] ,
+$$
+
+$$
+\boldsymbol{v}_n=\beta _n\boldsymbol{p}_{n-1}+\eta _n\boldsymbol{p}_n
+$$
+
+$$
+\Rightarrow \boldsymbol{p}_n=\frac{1}{\eta _n}\left( \boldsymbol{v}_n-\beta _n\boldsymbol{p}_{n-1} \right) 
+$$
+
+`Claim`: $\boldsymbol{v}_n\parallel \boldsymbol{r}_n$. (Why?  Prove by induction)
+
+Then:
+
+$$
+\boldsymbol{p}_n=\frac{1}{\eta _n}\left( \gamma _n\boldsymbol{r}_n-\beta _n\boldsymbol{p}_{n-1} \right) 
+$$
+
+Now, this projection method becomes CG method.
+
+## Properties of Conjugate Gradient Method
+
+`Theorem`: In CG method,
+
+- $\left< \boldsymbol{r}^{\left( j \right)},\boldsymbol{r}^{\left( i \right)} \right> =0, i\ne j$;
+- $\left< \boldsymbol{Ap}^{\left( j \right)},\boldsymbol{p}^{\left( i \right)} \right> =0,i\ne j$.
+
+`Proof`: Note that:
+
+$$
+\boldsymbol{P}_n=\boldsymbol{V}_n{\boldsymbol{U}_n}^{-1},
+$$
+
+$$
+{\boldsymbol{P}_n}^T\boldsymbol{AP}_n=\left( {\boldsymbol{U}_n}^{-1} \right) ^T{\boldsymbol{V}_n}^T\boldsymbol{AV}_n{\boldsymbol{U}_n}^{-1}
+$$
+
+$$
+=\left( {\boldsymbol{U}_n}^{-1} \right) ^T\boldsymbol{T}_n{\boldsymbol{U}_n}^{-1}=\left( {\boldsymbol{U}_n}^{-1} \right) ^T\boldsymbol{L}_n\boldsymbol{U}_n{\boldsymbol{U}_n}^{-1}=\left( {\boldsymbol{U}_n}^{-1} \right) ^T\boldsymbol{L}_n
+$$
+
+Since $\left( {\boldsymbol{U}_n}^{-1} \right) ^T\boldsymbol{L}_n$ is lower triangular, and ${\boldsymbol{P}_n}^T\boldsymbol{AP}_n$ is symmetric, then we know that ${\boldsymbol{P}_n}^T\boldsymbol{AP}_n$ is diagonal. Therefore,
+
+$$
+{\boldsymbol{p}_i}^T\boldsymbol{Ap}_j=0, i\ne j\Longleftrightarrow \left< \boldsymbol{Ap}^{\left( j \right)},\boldsymbol{p}^{\left( i \right)} \right> =0,i\ne j
+$$
+
+We call $\boldsymbol{p}^{\left( j \right)},\boldsymbol{p}^{\left( i \right)}$ are ***conjugate*** to each other.
+
+`Theorem`: Assume $\boldsymbol{A}$ is SPD, $\boldsymbol{L}=\boldsymbol{K}$, then a vector $\boldsymbol{x}$ is the result of a projection method onto $\boldsymbol{K}$, orthogonal to $\boldsymbol{L}$ with initial guess $\boldsymbol{x}^{(0)}$ if and only if $\boldsymbol{x}$ minimizes the $\boldsymbol{A}$-norm of the error over $\boldsymbol{x}^{\left( 0 \right)}+\boldsymbol{K}$, i.e.,
+
+$$
+E\left( \boldsymbol{y} \right) =\left\| \boldsymbol{x}^*-\boldsymbol{y} \right\| _{\boldsymbol{A}}^{2}=\left( \boldsymbol{x}^*-\boldsymbol{y} \right) ^T\boldsymbol{A}\left( \boldsymbol{x}^*-\boldsymbol{y} \right) 
+$$
+
+where $\boldsymbol{x}^*$ is the true solution of $\boldsymbol{Ax}=\boldsymbol{b}$, and:
+
+$$
+\boldsymbol{x}=\mathrm{arg}\min E\left( \boldsymbol{y} \right) , \boldsymbol{y}\in \boldsymbol{x}^{\left( 0 \right)}+\boldsymbol{K}
+$$
+
+`Proof` (idea): To show that
+
+$$
+\frac{\partial E}{\partial \boldsymbol{y}}\mid_{\boldsymbol{y}=\boldsymbol{x}}^{}=\boldsymbol{v}^T\boldsymbol{r}=0,\forall \boldsymbol{v}\in \boldsymbol{K}=\boldsymbol{L}, \boldsymbol{r}=\boldsymbol{b}-\boldsymbol{Ax}
+$$
+
+`Theorem`: In exact mathematics, CG method converges in at most $m$ steps if $\boldsymbol{A}$ is SPD in $\mathbb{R} ^{m\times m}$.
+
+`Theorem`: In general, CG method converges according to the following estimate ( $\boldsymbol{A}$ is SPD):
+
+$$
+\left\| \boldsymbol{x}^{\left( n \right)}-\boldsymbol{x}^{\left( * \right)} \right\| _2\leqslant \left( \frac{\sqrt{\kappa \left( \boldsymbol{A} \right)}-1}{\sqrt{\kappa \left( \boldsymbol{A} \right)}+1} \right) ^n\cdot \left\| \boldsymbol{x}^{\left( 0 \right)}-\boldsymbol{x}^{\left( * \right)} \right\| _2
+$$
+
+`Theorem`: The Steepest Descent Method converges with the following estimate ( $\boldsymbol{A}$ is SPD):
+
+$$
+\left\| \boldsymbol{x}^{\left( n \right)}-\boldsymbol{x}^{\left( * \right)} \right\| _{\boldsymbol{A}}\leqslant \left( \frac{\kappa \left( \boldsymbol{A} \right) -1}{\kappa \left( \boldsymbol{A} \right) +1} \right) ^n\cdot \left\| \boldsymbol{x}^{\left( 0 \right)}-\boldsymbol{x}^{\left( * \right)} \right\| _{\boldsymbol{A}}
+$$
+
+The difference between CG and Steepest Descent Method is significant.
+
+`Example`: If $\kappa \left( \boldsymbol{A} \right) =999$, then:
+
+$$
+\frac{\kappa \left( \boldsymbol{A} \right) -1}{\kappa \left( \boldsymbol{A} \right) +1}=0.998,
+$$
+
+$$
+n=100: \left( 0.998 \right) ^{100}\approx 1-100\times 0.002=0.8;
+$$
+
+$$
+\frac{\sqrt{\kappa \left( \boldsymbol{A} \right)}-1}{\sqrt{\kappa \left( \boldsymbol{A} \right)}+1}=0.93,
+$$
+
+$$
+n=0.8100: \left( 0.93 \right) ^{100}\approx 7\times 10^{-4}
+$$
+
+**Preconditioning Techniques**: Reduce the condition number of a linear system, so that the convergence is faster.
