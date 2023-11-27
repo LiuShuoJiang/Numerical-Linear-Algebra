@@ -13,4 +13,6 @@ Why do we need iterative methods?
 
 [General Strategy of Iteration Methods](./Introduction_to_Iteration.md)
 
-[Projection Method](./Projection_Method.md)
+[Projection Method 1](./Projection_Method.md)
+
+[Projection Method 2](./Projection_Method_2.md)
