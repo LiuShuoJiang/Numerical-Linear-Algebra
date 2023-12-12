@@ -2,6 +2,8 @@
 
 We will discuss the general **Splitting Strategy**.
 
+## General Splitting Strategy
+
 For linear system $\boldsymbol{Ax}=\boldsymbol{b}$, let $\boldsymbol{A}=\boldsymbol{M}-\boldsymbol{N}$. Then:
 
 $$
@@ -29,6 +31,8 @@ $$
 where $\boldsymbol{G}$ is called **iterative matrix**.
 
 For example, Jacobi method: $\boldsymbol{M}=\boldsymbol{D}, \boldsymbol{N}=\boldsymbol{E}+\boldsymbol{F}$.
+
+## Speed of Convergence
 
 `Question`: Is it convergent? If so, how fast?
 
@@ -60,7 +64,9 @@ $$
 \boldsymbol{e}^{\left( k+1 \right)}=\boldsymbol{Ge}^{\left( k \right)}
 $$
 
-This is the ***error equation***. 
+This is the ***error equation***.
+
+### Method 1
 
 `Question`: Is $\boldsymbol{e}^{\left( k \right)}\rightarrow 0$ as $k\rightarrow +\infty$ ? If so, how fast?
 
@@ -77,6 +83,8 @@ The inverse is also true: If $\boldsymbol{x}^{\left( k \right)}$ converges for a
 `Question`: If $\rho \left( \boldsymbol{G} \right) >1$, there exists an initial guess that $\boldsymbol{x}^{(k)}$ does not converge. If $\rho \left( \boldsymbol{G} \right) =1$, what happens?
 
 `Theorem`: If $\left\| \boldsymbol{G} \right\| <1$ (any matrix norm is fine), then $\rho \left( \boldsymbol{G} \right) <1$.
+
+### Method 2
 
 `Definition`: A matrix $\boldsymbol{A}\in \mathbb{R} ^{m\times m}$ is called **(weakly) diagonally dominant** if:
 
