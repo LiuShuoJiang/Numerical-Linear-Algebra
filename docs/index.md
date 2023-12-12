@@ -11,7 +11,8 @@ This site documents the detailed notes on my study of Numerical Linear Algebra, 
 ***Contents***:
 
 1. [Introduction to Numerical Linear Algebra](./Basics/README.md)
-2. [Condition and Stability](./Condition%20and%20Stability/README.md)
-3. [Eigenvalues Solving](./Eigenvalue/README.md)
-4. [Iterative Methods](./Iterative%20Methods/README.md)
-5. [Miscellaneous Topics](./Miscellaneous/README.md)
+2. [Direct Methods](./Gaussian/README.md)
+3. [Condition and Stability](./Condition%20and%20Stability/README.md)
+4. [Eigenvalues Solving](./Eigenvalue/README.md)
+5. [Iterative Methods](./Iterative%20Methods/README.md)
+6. [Miscellaneous Topics](./Miscellaneous/README.md)
