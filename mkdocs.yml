@@ -65,6 +65,10 @@ nav:
     - Basics/README.md
     - Introduction: Basics/Introduction.md
     - Linear Algebra Review: Basics/Linear_Algebra.md
+  - Direct Methods:
+    - Gaussian/README.md
+    - Gaussian Elimination: Gaussian/Gaussian_Elimination.md
+    - Variants of Gaussian Elimination: Gaussian/Gaussian_Elimination_2.md
   - Condition and Stability:
     - Condition and Stability/README.md
     - Conditioning: Condition and Stability/Conditioning.md
@@ -82,7 +86,11 @@ nav:
     - Classical Iteration Methods: Iterative Methods/Classical_Iteration.md
     - General Strategy of Iteration Methods: Iterative Methods/Introduction_to_Iteration.md
     - Projection Methods: Iterative Methods/Projection_Method.md
-    - Krylov Subspace: Iterative Methods/Projection_Method_2.md
+    - Steepest Descent Method: Iterative Methods/Steepest_Descent.md
+    - Conjugate Gradient Method: Iterative Methods/Conjugate_Gradient.md
+    - Krylov Subspace: Iterative Methods/Conjugate_Gradient_2.md
+    - GMRES: Iterative Methods/GMRES.md
+    - Preconditioning: Iterative Methods/Preconditioning.md
   - Miscellaneous Topics:
     - Miscellaneous/README.md
     - Least Square Problems: Miscellaneous/Least_Square.md
