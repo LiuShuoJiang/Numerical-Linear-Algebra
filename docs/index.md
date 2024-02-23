@@ -2,11 +2,7 @@
 
 ***Author***: [Shuojiang Liu](https://github.com/LiuShuoJiang)
 
-This site documents the detailed notes on my study of Numerical Linear Algebra, the content of which is derived from synthesizing and contemplating the content of the Georgia Tech MATH 6643 course I am taking.
-
-!!! note
-
-    This site is still under active construction.
+This site documents the detailed notes on my study of Numerical Linear Algebra, the content of which is derived from synthesizing and contemplating the content of the Georgia Tech MATH 6643 course I have taken.
 
 ***Contents***:
 
